@@ -1,5 +1,5 @@
 /* service worker : reseau d'abord pour les pages, cache pour les ressources statiques */
-var V = 'epargne-v2';
+var V = 'epargne-std-ac264ce9';
 self.addEventListener('install', function (e) { self.skipWaiting(); });
 self.addEventListener('activate', function (e) { e.waitUntil(caches.keys().then(function (ks) { return Promise.all(ks.filter(function (k) { return k !== V; }).map(function (k) { return caches.delete(k); })); }).then(function () { return self.clients.claim(); })); });
 self.addEventListener('fetch', function (e) {
